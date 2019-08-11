@@ -47,6 +47,9 @@
   color: #333;
   margin-bottom: 5px;
 }
+.location {
+  margin-top:10px;
+}
 </style>
 
 <template>
@@ -54,7 +57,7 @@
     <Header isLeft="true" title="选择收获地址" />
     <div class="city-search">
       <div class="search">
-        <span class="city">
+        <span class="city" @click="$router.push('/city')">
           {{ city }}
           <i class="fa fa-angle-down"></i>
         </span>

@@ -1,6 +1,6 @@
 <style scoped>
 .title {
-  margin: 10px 0;
+  margin: 0 0 10px;
   font-size: 12px;
 }
 .des i {

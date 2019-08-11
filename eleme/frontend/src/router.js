@@ -28,6 +28,10 @@ const router = new Router({
           path:"/address",
           name:"Address",
           component:()=>import("./views/address.vue")
+        },{
+          path:"/city",
+          name:"City",
+          component:()=>import("./views/city.vue")
         }
       ],
       component: () => import("./views/index.vue")

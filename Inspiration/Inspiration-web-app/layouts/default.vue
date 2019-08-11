@@ -34,7 +34,7 @@
         <NavNormal />
         <div class="header-logo">灵感源泉</div>
         <div class="header-right">
-          <a href="http://">Login</a>
+          <nuxt-link to="/account/login">Login</nuxt-link>
         </div>
       </main>
     </header>

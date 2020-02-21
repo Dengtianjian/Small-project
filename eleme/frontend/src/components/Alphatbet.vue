@@ -50,23 +50,25 @@
     <div class="scroll-wrap">
       <div class="hot-wrap">
         <div class="title">热门城市</div>
-        <ul class="hot-city">
-          <li v-for="(item,index) in cityInfo['hotCities']" :key="index">
-            {{ item['name'] }}
-          </li>
+        <ul class="hot-city city-list">
+          <li v-for="(item,index) in cityInfo['hotCities']" :key="index">{{ item['name'] }}</li>
         </ul>
       </div>
       <!--[ 所有城市 ]-->
       <div class="city-wrap">
-        <div class="city-content" v-for="(item,index) in keys" :key="index">
+        <div class="city-content city-list" v-for="(item,index) in keys" :key="index">
           <div class="title">{{ item }}</div>
           <ul>
-            <li v-for="(city,cityIndex) in cityInfo[item]" :key="cityIndex">
-              {{ city['name'] }}
-            </li>
+            <li v-for="(city,cityIndex) in cityInfo[item]" :key="cityIndex">{{ city['name'] }}</li>
           </ul>
         </div>
       </div>
+    </div>
+    <div class="area-keys">
+      <ul>
+        <li @click="selectKey(0)">#</li>
+        <li @click="selectKey(index+1)" v-for="(item,index) in keys" :key="index">{{ item }}</li>
+      </ul>
     </div>
   </div>
 </template>
@@ -74,21 +76,28 @@
 <script>
 import BScroll from "better-scroll";
 export default {
-  props:{
-    cityInfo:Object,
-    keys:Array
+  props: {
+    cityInfo: Object,
+    keys: Array
   },
-  data(){
+  data() {
     return {
-      scroll:null
-    }
+      scroll: null
+    };
   },
-  methods:{
-    initScroll(){
-      this.scroll=new BScroll(this.$refs.areaScroll,{
-        click:true,
-      });
+  methods: {
+    initScroll() {
+      console.log(this.$refs.areaScroll);
+      this.scroll = new BScroll(this.$refs.areaScroll);
+      this.scroll.refresh();
+    },
+    selectKey(key) {
+      const cityList=this.$refs.areaScroll.getElementsByClassName("city-list");
+      let el=cityList[key];
+      
+      console.log(this.scroll);
+      this.scroll.scrollToElement(el,250);
     }
   }
-}
+};
 </script>

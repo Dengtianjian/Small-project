@@ -39,10 +39,6 @@
   background:none;
 }
 
-.city-wrapper {
-  height:100%;
-}
-
 .location {
   background: #fff;
   padding: 8px 16px;
@@ -68,7 +64,7 @@
       </div>
       <button @click="$router.go(-1)">取消</button>
     </div>
-    <div class="city-wrapper">
+    <div style="height:100%;">
       <div class="location">
         <Location :address="city"/>
       </div>
